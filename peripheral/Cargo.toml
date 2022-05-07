@@ -1,0 +1,13 @@
+[package]
+name = "peripheral"
+version = "0.1.1"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+
+[dependencies]
+anyhow = "1"
+flutter_rust_bridge = "1.28.1"
+futures = "0.3.21"
+lipl-gatt-bluer = { git = "git://paulmin.nl/rust/lipl-gatt-bluer.git"}
