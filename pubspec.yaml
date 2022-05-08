@@ -1,7 +1,7 @@
-name: flutter_rust_bridge_template
-description: A new Flutter project
+name: lipl_display
+description: Lipl display for showing Lyrics sent to gatt peripheral
 publish_to: 'none' 
-version: 1.0.0+1
+version: 1.0.2
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_rust_bridge: ^1.15.1
+  flutter_rust_bridge: ^1.29.0
 
 dev_dependencies:
   flutter_test:
