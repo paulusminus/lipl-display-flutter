@@ -8,9 +8,14 @@ crate-type = ["cdylib"]
 
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.29"
+cargo_metadata = "0.14"
 
 [dependencies]
 anyhow = "1"
 flutter_rust_bridge = "1.29"
 futures = "0.3.21"
 lipl-gatt-bluer = { git = "git://paulmin.nl/rust/lipl-gatt-bluer.git"}
+
+[package.metadata.bridge]
+rust_input = "src/api.rs"
+dart_output = "lib/bridge_generated.dart"

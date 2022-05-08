@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'ffi.dart';
 
 const String defaultPart = "Even geduld a.u.b.";
@@ -16,9 +17,7 @@ void main() {
   );
 
   runApp(
-    DisplayApp(
-      messages: messages,
-    ),
+    DisplayApp(messages: messages),
   );
 }
 
@@ -33,6 +32,12 @@ class DisplayApp extends StatelessWidget {
       home: StreamBuilder<LiplDisplay>(
         stream: messages,
         builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            SystemNavigator.pop();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
           return Scaffold(
             backgroundColor:
                 snapshot.data?.darkMode ?? false ? Colors.black : Colors.white,
