@@ -6,6 +6,11 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib"]
 
+[profile.release]
+lto = true
+strip = true
+opt-level = "z"
+
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.29"
 cargo_metadata = "0.14"
@@ -15,6 +20,7 @@ anyhow = "1"
 flutter_rust_bridge = "1.29"
 futures = "0.3.21"
 lipl-gatt-bluer = { git = "git://paulmin.nl/rust/lipl-gatt-bluer.git"}
+login-poweroff-reboot = { git = "git://paulmin.nl/rust/login-poweroff-reboot.git" }
 
 [package.metadata.bridge]
 rust_input = "src/api.rs"

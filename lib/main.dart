@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'ffi.dart';
@@ -29,9 +31,13 @@ class DisplayApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Lipl Display',
+      theme: ThemeData(fontFamily: 'Roboto'),
       home: StreamBuilder<LiplDisplay>(
         stream: messages,
         builder: (context, snapshot) {
+          final size = MediaQuery.of(context).size;
+          final padding = min(size.width, size.height) * 0.05;
+
           if (snapshot.connectionState == ConnectionState.done) {
             SystemNavigator.pop();
             return const Scaffold(
@@ -43,10 +49,12 @@ class DisplayApp extends StatelessWidget {
           return Scaffold(
             backgroundColor:
                 snapshot.data?.darkMode ?? false ? Colors.black : Colors.white,
-            body: Column(
-              children: [
-                Expanded(
-                  child: Center(
+            body: Padding(
+              padding: EdgeInsets.all(padding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
                     child: Text(
                       snapshot.data?.part ?? '',
                       style: TextStyle(
@@ -57,25 +65,27 @@ class DisplayApp extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.all(snapshot.data?.fontSize ?? 8.0),
-                      child: Text(
-                        snapshot.data?.status ?? '',
-                        style: TextStyle(
-                          fontSize: snapshot.data?.fontSize,
-                          color: snapshot.data?.darkMode ?? false
-                              ? Colors.white
-                              : Colors.black,
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: snapshot.data?.fontSize ?? 8.0),
+                        child: Text(
+                          snapshot.data?.status ?? '',
+                          style: TextStyle(
+                            fontSize: snapshot.data == null
+                                ? null
+                                : snapshot.data!.fontSize * 0.8,
+                            color: snapshot.data?.darkMode ?? false
+                                ? Colors.white
+                                : Colors.black,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
           );
         },

@@ -20,6 +20,12 @@ dev_dependencies:
 platforms:
   linux:
 
+
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+
 

@@ -94,8 +94,9 @@ pub fn gatt_listen(
                 if !sink.add(lipl_display.clone()) {
                     return Err(Error::Callback);
                 }
-                if [Message::Command(Command::Exit), Message::Command(Command::Poweroff)].contains(&message)
+                if [Message::Command(Command::Poweroff)].contains(&message)
                 {
+                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Poweroff)?;
                     return Err(Error::Cancelled);
                 }
             }
