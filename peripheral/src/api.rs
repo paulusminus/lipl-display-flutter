@@ -15,39 +15,53 @@ pub struct LiplDisplay {
 }
 
 impl LiplDisplay {
-    fn set_part(&self, part: String) -> Self {
+    fn set_part(self, part: String) -> Self {
         Self {
             part,
-            status: self.status.clone(),
-            dark_mode: self.dark_mode,
-            font_size: self.font_size,
+            ..self
         }
     }
 
-    fn set_status(&self, status: String) -> Self {
+    fn set_status(self, status: String) -> Self {
         Self {
-            part: self.part.clone(),
             status,
-            dark_mode: self.dark_mode,
-            font_size: self.font_size,
+            ..self
         }
     }
 
-    fn set_dark_mode(&self, dark_mode: bool) -> Self {
+    fn set_dark_mode(self, dark_mode: bool) -> Self {
         Self {
-            part: self.part.clone(),
-            status: self.status.clone(),
             dark_mode,
-            font_size: self.font_size,
+            ..self
         }
     }
 
-    fn set_font_size_increment(&self, increment: f32) -> Self {
+    fn set_font_size_increment(self, increment: f32) -> Self {
         Self {
-            part: self.part.clone(),
-            status: self.status.clone(),
-            dark_mode: self.dark_mode,
             font_size: self.font_size + increment,
+            ..self
+        }
+    }
+
+    fn handle(self, message: &Message, font_size_increment: f32) -> Self {
+        match &message {
+            Message::Part(part) => self.set_part(part.clone()),
+            Message::Status(status) => self.set_status(status.clone()),
+            Message::Command(command) => match command {
+                Command::Dark => self.set_dark_mode(true),
+                Command::Light => self.set_dark_mode(false),
+                Command::Increase => {
+                    self.set_font_size_increment(font_size_increment)
+                }
+                Command::Decrease => {
+                    if self.font_size > 2.0 * font_size_increment {
+                        self.set_font_size_increment(-font_size_increment)
+                    } else {
+                        self
+                    }
+                }
+                _ => self,
+            },
         }
     }
 }
@@ -76,30 +90,11 @@ pub fn gatt_listen(
 
             let mut s = listen_stream().await?.boxed();
             while let Some(message) = s.next().await {
-                lipl_display = match &message {
-                    Message::Part(part) => lipl_display.set_part(part.clone()),
-                    Message::Status(status) => lipl_display.set_status(status.clone()),
-                    Message::Command(command) => match command {
-                        Command::Dark => lipl_display.set_dark_mode(true),
-                        Command::Light => lipl_display.set_dark_mode(false),
-                        Command::Increase => {
-                            lipl_display.set_font_size_increment(font_size_increment)
-                        }
-                        Command::Decrease => {
-                            if lipl_display.font_size > 2.0 * font_size_increment {
-                                lipl_display.set_font_size_increment(-font_size_increment)
-                            } else {
-                                lipl_display
-                            }
-                        }
-                        _ => lipl_display,
-                    },
-                };
+                lipl_display = lipl_display.handle(&message, font_size_increment);
                 if !sink.add(lipl_display.clone()) {
                     return Err(Error::Callback);
                 }
-                if &message == &Message::Command(Command::Exit)
-                    || &message == &Message::Command(Command::Poweroff)
+                if [Message::Command(Command::Exit), Message::Command(Command::Poweroff)].contains(&message)
                 {
                     return Err(Error::Cancelled);
                 }
@@ -108,7 +103,5 @@ pub fn gatt_listen(
         })
     });
 
-    let result = handle.join().map_err(|_| Error::Callback)?;
-    result?;
-    Ok(())
+    handle.join().map_err(|_| Error::Callback)?.map_err(anyhow::Error::from)
 }
