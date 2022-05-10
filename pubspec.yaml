@@ -1,7 +1,7 @@
 name: lipl_display
 description: Lipl display for showing Lyrics sent to gatt peripheral
 publish_to: 'none' 
-version: 1.0.2
+version: 1.0.3
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -22,7 +22,7 @@ platforms:
 
 
 flutter:
-  uses-material-design: true
+#  uses-material-design: true
   fonts:
     - family: Roboto
       fonts:

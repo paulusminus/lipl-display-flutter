@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'ffi.dart';
 
 const String defaultPart = "Even geduld a.u.b.";
@@ -39,7 +38,6 @@ class DisplayApp extends StatelessWidget {
           final padding = min(size.width, size.height) * 0.05;
 
           if (snapshot.connectionState == ConnectionState.done) {
-            SystemNavigator.pop();
             return const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
@@ -58,6 +56,7 @@ class DisplayApp extends StatelessWidget {
                     child: Text(
                       snapshot.data?.part ?? '',
                       style: TextStyle(
+                        height: 1.2,
                         fontSize: snapshot.data?.fontSize,
                         color: snapshot.data?.darkMode ?? false
                             ? Colors.white
@@ -75,7 +74,7 @@ class DisplayApp extends StatelessWidget {
                           style: TextStyle(
                             fontSize: snapshot.data == null
                                 ? null
-                                : snapshot.data!.fontSize * 0.8,
+                                : snapshot.data!.fontSize * 0.7,
                             color: snapshot.data?.darkMode ?? false
                                 ? Colors.white
                                 : Colors.black,
