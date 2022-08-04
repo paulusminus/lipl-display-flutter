@@ -1,6 +1,6 @@
 [package]
 name = "peripheral"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 
 [lib]
@@ -12,12 +12,12 @@ strip = true
 opt-level = "z"
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.29"
-cargo_metadata = "0.14"
+flutter_rust_bridge_codegen = "1.40"
+cargo_metadata = "0.15"
 
 [dependencies]
-anyhow = "1"
-flutter_rust_bridge = "1.29"
+anyhow = { version = "1.0.59", features = ["backtrace"] }
+flutter_rust_bridge = "1.40"
 futures = "0.3.21"
 lipl-gatt-bluer = { git = "git://paulmin.nl/rust/lipl-gatt-bluer.git"}
 login-poweroff-reboot = { git = "git://paulmin.nl/rust/login-poweroff-reboot.git" }

@@ -22,7 +22,7 @@ pub extern "C" fn wire_gatt_listen(
     port_: i64,
     part: *mut wire_uint_8_list,
     status: *mut wire_uint_8_list,
-    dark_mode: bool,
+    dark: bool,
     font_size: f32,
     font_size_increment: f32,
 ) {
@@ -35,7 +35,7 @@ pub extern "C" fn wire_gatt_listen(
         move || {
             let api_part = part.wire2api();
             let api_status = status.wire2api();
-            let api_dark_mode = dark_mode.wire2api();
+            let api_dark = dark.wire2api();
             let api_font_size = font_size.wire2api();
             let api_font_size_increment = font_size_increment.wire2api();
             move |task_callback| {
@@ -43,7 +43,7 @@ pub extern "C" fn wire_gatt_listen(
                     task_callback.stream_sink(),
                     api_part,
                     api_status,
-                    api_dark_mode,
+                    api_dark,
                     api_font_size,
                     api_font_size_increment,
                 )
@@ -68,7 +68,7 @@ pub struct wire_uint_8_list {
 // Section: allocate functions
 
 #[no_mangle]
-pub extern "C" fn new_uint_8_list(len: i32) -> *mut wire_uint_8_list {
+pub extern "C" fn new_uint_8_list_0(len: i32) -> *mut wire_uint_8_list {
     let ans = wire_uint_8_list {
         ptr: support::new_leak_vec_ptr(Default::default(), len),
         len,
@@ -148,7 +148,7 @@ impl support::IntoDart for LiplDisplay {
         vec![
             self.part.into_dart(),
             self.status.into_dart(),
-            self.dark_mode.into_dart(),
+            self.dark.into_dart(),
             self.font_size.into_dart(),
         ]
         .into_dart()

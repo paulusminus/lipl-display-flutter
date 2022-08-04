@@ -12,7 +12,7 @@ void main() {
   final messages = peripheral.gattListen(
     part: defaultPart,
     status: '',
-    darkMode: defaultDarkmode,
+    dark: defaultDarkmode,
     fontSize: defaultFontsize,
     fontSizeIncrement: defaultFontsizeIncrement,
   );
@@ -46,7 +46,7 @@ class DisplayApp extends StatelessWidget {
           }
           return Scaffold(
             backgroundColor:
-                snapshot.data?.darkMode ?? false ? Colors.black : Colors.white,
+                snapshot.data?.dark ?? false ? Colors.black : Colors.white,
             body: Padding(
               padding: EdgeInsets.all(padding),
               child: Column(
@@ -58,7 +58,7 @@ class DisplayApp extends StatelessWidget {
                       style: TextStyle(
                         height: 1.2,
                         fontSize: snapshot.data?.fontSize,
-                        color: snapshot.data?.darkMode ?? false
+                        color: snapshot.data?.dark ?? false
                             ? Colors.white
                             : Colors.black,
                       ),
@@ -75,7 +75,7 @@ class DisplayApp extends StatelessWidget {
                             fontSize: snapshot.data == null
                                 ? null
                                 : snapshot.data!.fontSize * 0.7,
-                            color: snapshot.data?.darkMode ?? false
+                            color: snapshot.data?.dark ?? false
                                 ? Colors.white
                                 : Colors.black,
                           ),

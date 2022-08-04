@@ -1,16 +1,20 @@
 use flutter_rust_bridge::StreamSink;
 use futures::StreamExt;
 use lipl_gatt_bluer::{
-    create_runtime, listen_stream,
-    message::{Command, Message},
+    create_runtime,
+    listen_stream,
+    Command,
+    CommonError,
+    Message,
     Error,
 };
-
+ 
+#[repr(C)]
 #[derive(Clone)]
 pub struct LiplDisplay {
     pub part: String,
     pub status: String,
-    pub dark_mode: bool,
+    pub dark: bool,
     pub font_size: f32,
 }
 
@@ -29,9 +33,9 @@ impl LiplDisplay {
         }
     }
 
-    fn set_dark_mode(self, dark_mode: bool) -> Self {
+    fn set_dark_mode(self, dark: bool) -> Self {
         Self {
-            dark_mode,
+            dark,
             ..self
         }
     }
@@ -70,7 +74,7 @@ pub fn gatt_listen(
     sink: StreamSink<LiplDisplay>,
     part: String,
     status: String,
-    dark_mode: bool,
+    dark: bool,
     font_size: f32,
     font_size_increment: f32,
 ) -> anyhow::Result<()> {
@@ -81,7 +85,7 @@ pub fn gatt_listen(
             let mut lipl_display = LiplDisplay {
                 part,
                 status,
-                dark_mode,
+                dark,
                 font_size,
             };
             if !sink.add(lipl_display.clone()) {
@@ -96,8 +100,8 @@ pub fn gatt_listen(
                 }
                 if [Message::Command(Command::Poweroff)].contains(&message)
                 {
-                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Poweroff)?;
-                    return Err(Error::Cancelled);
+                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Common(CommonError::Poweroff))?;
+                    return Err(Error::Common(CommonError::Cancelled));
                 }
             }
             Ok::<(), Error>(())
