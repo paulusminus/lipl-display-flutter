@@ -1,25 +1,26 @@
 name: lipl_display
-description: Lipl display for showing Lyrics sent to gatt peripheral
+description: Showing Lyrics on gatt peripheral
 publish_to: 'none' 
 version: 1.0.4
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0 <4.0.0"
 
 dependencies:
   ffi: ^2.0.1
   flutter:
     sdk: flutter
-  flutter_rust_bridge: ^1.38.1
-  freezed_annotation: ^2.1.0
+  flutter_rust_bridge: ^1.75.1
+  freezed_annotation: ^2.2.0
 
 dev_dependencies:
-  ffigen: ^6.0.1
+  ffigen: ^7.2.11
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  build_runner: ^2.2.0
-  freezed: ^2.1.0+1
+  flutter_lints: ^2.0.1
+  build_runner: ^2.3.3
+  freezed: ^2.3.2
 
 platforms:
   linux:
