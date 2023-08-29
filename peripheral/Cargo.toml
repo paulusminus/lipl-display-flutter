@@ -19,8 +19,8 @@ cargo_metadata = "0.17"
 anyhow = { version = "1", features = ["backtrace"] }
 flutter_rust_bridge = "1.81.0"
 futures = "0.3"
-lipl-gatt-bluer = { git = "git://paulmin.nl/rust/lipl-gatt-bluer.git"}
-login-poweroff-reboot = { git = "git://paulmin.nl/rust/login-poweroff-reboot.git" }
+lipl-gatt-bluer = { git = "https://github.com/paulusminus/lipl-display.git"}
+login-poweroff-reboot = { git = "https://github.com/paulusminus/lipl-display.git" }
 
 [package.metadata.bridge]
 rust_input = "src/api.rs"
