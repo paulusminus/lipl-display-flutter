@@ -1,11 +1,9 @@
 use flutter_rust_bridge::StreamSink;
 use futures::StreamExt;
+use lipl_display_common::{Command, Message};
 use lipl_gatt_bluer::{
     create_runtime,
     listen_stream,
-    Command,
-    CommonError,
-    Message,
     Error,
 };
  
@@ -100,8 +98,8 @@ pub fn gatt_listen(
                 }
                 if [Message::Command(Command::Poweroff)].contains(&message)
                 {
-                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Common(CommonError::Poweroff))?;
-                    return Err(Error::Common(CommonError::Cancelled));
+                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Common(lipl_display_common::Error::Poweroff))?;
+                    return Err(Error::Common(lipl_display_common::Error::Cancelled));
                 }
             }
             Ok::<(), Error>(())
