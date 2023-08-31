@@ -19,9 +19,9 @@ cargo_metadata = "0.17"
 anyhow = { version = "1", features = ["backtrace"] }
 flutter_rust_bridge = "1.81.0"
 futures = "0.3"
-lipl-display-common = "0.2"
-lipl-gatt-bluer = "0.1"
-login-poweroff-reboot = "0.2"
+lipl-display-common = "0.3"
+lipl-gatt-bluer = "0.3"
+login-poweroff-reboot = "0.3"
 
 [package.metadata.bridge]
 rust_input = "src/api.rs"
