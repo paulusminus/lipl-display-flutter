@@ -13,15 +13,15 @@ opt-level = "z"
 
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.81.0"
-cargo_metadata = "0.17"
+cargo_metadata = "0.18"
 
 [dependencies]
 anyhow = { version = "1", features = ["backtrace"] }
 flutter_rust_bridge = "1.81.0"
 futures = "0.3"
-lipl-display-common = "0.3"
-lipl-gatt-bluer = "0.3"
-login-poweroff-reboot = "0.3"
+lipl-display-common = "0.4"
+lipl-gatt-bluer = "0.4"
+login-poweroff-reboot = "0.4"
 
 [package.metadata.bridge]
 rust_input = "src/api.rs"
