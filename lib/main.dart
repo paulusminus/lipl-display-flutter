@@ -23,7 +23,7 @@ void main() {
 }
 
 class DisplayApp extends StatelessWidget {
-  const DisplayApp({Key? key, required this.messages}) : super(key: key);
+  const DisplayApp({super.key, required this.messages});
   final Stream<LiplDisplay> messages;
 
   @override
