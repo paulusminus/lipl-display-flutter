@@ -11,13 +11,7 @@ import 'package:uuid/uuid.dart';
 import 'dart:ffi' as ffi;
 
 abstract class Peripheral {
-  Stream<LiplDisplay> gattListen(
-      {required String part,
-      required String status,
-      required bool dark,
-      required double fontSize,
-      required double fontSizeIncrement,
-      dynamic hint});
+  Stream<LiplDisplay> gattListen({required String part, required String status, required bool dark, required double fontSize, required double fontSizeIncrement, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kGattListenConstMeta;
 }
@@ -38,40 +32,42 @@ class LiplDisplay {
 
 class PeripheralImpl implements Peripheral {
   final PeripheralPlatform _platform;
-  factory PeripheralImpl(ExternalLibrary dylib) =>
-      PeripheralImpl.raw(PeripheralPlatform(dylib));
+  factory PeripheralImpl(ExternalLibrary dylib) => PeripheralImpl.raw(PeripheralPlatform(dylib));
 
   /// Only valid on web/WASM platforms.
-  factory PeripheralImpl.wasm(FutureOr<WasmModule> module) =>
-      PeripheralImpl(module as ExternalLibrary);
+  factory PeripheralImpl.wasm(FutureOr<WasmModule> module) => PeripheralImpl(module as ExternalLibrary);
   PeripheralImpl.raw(this._platform);
-  Stream<LiplDisplay> gattListen(
-      {required String part,
-      required String status,
-      required bool dark,
-      required double fontSize,
-      required double fontSizeIncrement,
-      dynamic hint}) {
+  Stream<LiplDisplay> gattListen({required String part, required String status, required bool dark, required double fontSize, required double fontSizeIncrement, dynamic hint}) {
     var arg0 = _platform.api2wire_String(part);
     var arg1 = _platform.api2wire_String(status);
     var arg2 = dark;
     var arg3 = api2wire_f32(fontSize);
     var arg4 = api2wire_f32(fontSizeIncrement);
     return _platform.executeStream(FlutterRustBridgeTask(
-      callFfi: (port_) =>
-          _platform.inner.wire_gatt_listen(port_, arg0, arg1, arg2, arg3, arg4),
+      callFfi: (port_) => _platform.inner.wire_gatt_listen(port_, arg0, arg1, arg2, arg3, arg4),
       parseSuccessData: _wire2api_lipl_display,
       parseErrorData: _wire2api_FrbAnyhowException,
       constMeta: kGattListenConstMeta,
-      argValues: [part, status, dark, fontSize, fontSizeIncrement],
+      argValues: [
+        part,
+        status,
+        dark,
+        fontSize,
+        fontSizeIncrement
+      ],
       hint: hint,
     ));
   }
 
-  FlutterRustBridgeTaskConstMeta get kGattListenConstMeta =>
-      const FlutterRustBridgeTaskConstMeta(
+  FlutterRustBridgeTaskConstMeta get kGattListenConstMeta => const FlutterRustBridgeTaskConstMeta(
         debugName: "gatt_listen",
-        argNames: ["part", "status", "dark", "fontSize", "fontSizeIncrement"],
+        argNames: [
+          "part",
+          "status",
+          "dark",
+          "fontSize",
+          "fontSizeIncrement"
+        ],
       );
 
   void dispose() {
@@ -97,8 +93,7 @@ class PeripheralImpl implements Peripheral {
 
   LiplDisplay _wire2api_lipl_display(dynamic raw) {
     final arr = raw as List<dynamic>;
-    if (arr.length != 4)
-      throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
+    if (arr.length != 4) throw Exception('unexpected arr length: expect 4 but see ${arr.length}');
     return LiplDisplay(
       part: _wire2api_String(arr[0]),
       status: _wire2api_String(arr[1]),
@@ -169,18 +164,13 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
   late final dartApi = DartApiDl(init_frb_dart_api_dl);
 
   /// Holds the symbol lookup function.
-  final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
-      _lookup;
+  final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) _lookup;
 
   /// The symbols are looked up in [dynamicLibrary].
-  PeripheralWire(ffi.DynamicLibrary dynamicLibrary)
-      : _lookup = dynamicLibrary.lookup;
+  PeripheralWire(ffi.DynamicLibrary dynamicLibrary) : _lookup = dynamicLibrary.lookup;
 
   /// The symbols are looked up with [lookup].
-  PeripheralWire.fromLookup(
-      ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
-          lookup)
-      : _lookup = lookup;
+  PeripheralWire.fromLookup(ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) lookup) : _lookup = lookup;
 
   void store_dart_post_cobject(
     DartPostCObjectFnType ptr,
@@ -190,11 +180,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _store_dart_post_cobjectPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>(
-          'store_dart_post_cobject');
-  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr
-      .asFunction<void Function(DartPostCObjectFnType)>();
+  late final _store_dart_post_cobjectPtr = _lookup<ffi.NativeFunction<ffi.Void Function(DartPostCObjectFnType)>>('store_dart_post_cobject');
+  late final _store_dart_post_cobject = _store_dart_post_cobjectPtr.asFunction<void Function(DartPostCObjectFnType)>();
 
   Object get_dart_object(
     int ptr,
@@ -204,11 +191,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _get_dart_objectPtr =
-      _lookup<ffi.NativeFunction<ffi.Handle Function(ffi.UintPtr)>>(
-          'get_dart_object');
-  late final _get_dart_object =
-      _get_dart_objectPtr.asFunction<Object Function(int)>();
+  late final _get_dart_objectPtr = _lookup<ffi.NativeFunction<ffi.Handle Function(ffi.UintPtr)>>('get_dart_object');
+  late final _get_dart_object = _get_dart_objectPtr.asFunction<Object Function(int)>();
 
   void drop_dart_object(
     int ptr,
@@ -218,11 +202,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _drop_dart_objectPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.UintPtr)>>(
-          'drop_dart_object');
-  late final _drop_dart_object =
-      _drop_dart_objectPtr.asFunction<void Function(int)>();
+  late final _drop_dart_objectPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.UintPtr)>>('drop_dart_object');
+  late final _drop_dart_object = _drop_dart_objectPtr.asFunction<void Function(int)>();
 
   int new_dart_opaque(
     Object handle,
@@ -232,11 +213,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_dart_opaquePtr =
-      _lookup<ffi.NativeFunction<ffi.UintPtr Function(ffi.Handle)>>(
-          'new_dart_opaque');
-  late final _new_dart_opaque =
-      _new_dart_opaquePtr.asFunction<int Function(Object)>();
+  late final _new_dart_opaquePtr = _lookup<ffi.NativeFunction<ffi.UintPtr Function(ffi.Handle)>>('new_dart_opaque');
+  late final _new_dart_opaque = _new_dart_opaquePtr.asFunction<int Function(Object)>();
 
   int init_frb_dart_api_dl(
     ffi.Pointer<ffi.Void> obj,
@@ -246,11 +224,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _init_frb_dart_api_dlPtr =
-      _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>(
-          'init_frb_dart_api_dl');
-  late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr
-      .asFunction<int Function(ffi.Pointer<ffi.Void>)>();
+  late final _init_frb_dart_api_dlPtr = _lookup<ffi.NativeFunction<ffi.IntPtr Function(ffi.Pointer<ffi.Void>)>>('init_frb_dart_api_dl');
+  late final _init_frb_dart_api_dl = _init_frb_dart_api_dlPtr.asFunction<int Function(ffi.Pointer<ffi.Void>)>();
 
   void wire_gatt_listen(
     int port_,
@@ -270,18 +245,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _wire_gatt_listenPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Int64,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Pointer<wire_uint_8_list>,
-              ffi.Bool,
-              ffi.Float,
-              ffi.Float)>>('wire_gatt_listen');
-  late final _wire_gatt_listen = _wire_gatt_listenPtr.asFunction<
-      void Function(int, ffi.Pointer<wire_uint_8_list>,
-          ffi.Pointer<wire_uint_8_list>, bool, double, double)>();
+  late final _wire_gatt_listenPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>, ffi.Bool, ffi.Float, ffi.Float)>>('wire_gatt_listen');
+  late final _wire_gatt_listen = _wire_gatt_listenPtr.asFunction<void Function(int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>, bool, double, double)>();
 
   ffi.Pointer<wire_uint_8_list> new_uint_8_list_0(
     int len,
@@ -291,12 +256,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _new_uint_8_list_0Ptr = _lookup<
-          ffi
-          .NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>(
-      'new_uint_8_list_0');
-  late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr
-      .asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
+  late final _new_uint_8_list_0Ptr = _lookup<ffi.NativeFunction<ffi.Pointer<wire_uint_8_list> Function(ffi.Int32)>>('new_uint_8_list_0');
+  late final _new_uint_8_list_0 = _new_uint_8_list_0Ptr.asFunction<ffi.Pointer<wire_uint_8_list> Function(int)>();
 
   void free_WireSyncReturn(
     WireSyncReturn ptr,
@@ -306,11 +267,8 @@ class PeripheralWire implements FlutterRustBridgeWireBase {
     );
   }
 
-  late final _free_WireSyncReturnPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(WireSyncReturn)>>(
-          'free_WireSyncReturn');
-  late final _free_WireSyncReturn =
-      _free_WireSyncReturnPtr.asFunction<void Function(WireSyncReturn)>();
+  late final _free_WireSyncReturnPtr = _lookup<ffi.NativeFunction<ffi.Void Function(WireSyncReturn)>>('free_WireSyncReturn');
+  late final _free_WireSyncReturn = _free_WireSyncReturnPtr.asFunction<void Function(WireSyncReturn)>();
 }
 
 final class _Dart_Handle extends ffi.Opaque {}
@@ -322,7 +280,5 @@ final class wire_uint_8_list extends ffi.Struct {
   external int len;
 }
 
-typedef DartPostCObjectFnType = ffi.Pointer<
-    ffi.NativeFunction<
-        ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message)>>;
+typedef DartPostCObjectFnType = ffi.Pointer<ffi.NativeFunction<ffi.Bool Function(DartPort port_id, ffi.Pointer<ffi.Void> message)>>;
 typedef DartPort = ffi.Int64;
