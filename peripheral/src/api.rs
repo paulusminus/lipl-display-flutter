@@ -1,12 +1,8 @@
 use flutter_rust_bridge::StreamSink;
 use futures::StreamExt;
 use lipl_display_common::{Command, Message};
-use lipl_gatt_bluer::{
-    create_runtime,
-    listen_stream,
-    Error,
-};
- 
+use lipl_gatt_bluer::{create_runtime, listen_stream, Error};
+
 #[repr(C)]
 #[derive(Clone)]
 pub struct LiplDisplay {
@@ -18,24 +14,15 @@ pub struct LiplDisplay {
 
 impl LiplDisplay {
     fn set_part(self, part: String) -> Self {
-        Self {
-            part,
-            ..self
-        }
+        Self { part, ..self }
     }
 
     fn set_status(self, status: String) -> Self {
-        Self {
-            status,
-            ..self
-        }
+        Self { status, ..self }
     }
 
     fn set_dark_mode(self, dark: bool) -> Self {
-        Self {
-            dark,
-            ..self
-        }
+        Self { dark, ..self }
     }
 
     fn set_font_size_increment(self, increment: f32) -> Self {
@@ -52,9 +39,7 @@ impl LiplDisplay {
             Message::Command(command) => match command {
                 Command::Dark => self.set_dark_mode(true),
                 Command::Light => self.set_dark_mode(false),
-                Command::Increase => {
-                    self.set_font_size_increment(font_size_increment)
-                }
+                Command::Increase => self.set_font_size_increment(font_size_increment),
                 Command::Decrease => {
                     if self.font_size > 2.0 * font_size_increment {
                         self.set_font_size_increment(-font_size_increment)
@@ -96,9 +81,9 @@ pub fn gatt_listen(
                 if !sink.add(lipl_display.clone()) {
                     return Err(Error::Callback);
                 }
-                if [Message::Command(Command::Poweroff)].contains(&message)
-                {
-                    login_poweroff_reboot::poweroff(1000).map_err(|_| Error::Common(lipl_display_common::Error::Poweroff))?;
+                if [Message::Command(Command::Poweroff)].contains(&message) {
+                    login_poweroff_reboot::poweroff(1000)
+                        .map_err(|_| Error::Common(lipl_display_common::Error::Poweroff))?;
                     return Err(Error::Common(lipl_display_common::Error::Cancelled));
                 }
             }
@@ -106,5 +91,8 @@ pub fn gatt_listen(
         })
     });
 
-    handle.join().map_err(|_| Error::Callback)?.map_err(anyhow::Error::from)
+    handle
+        .join()
+        .map_err(|_| Error::Callback)?
+        .map_err(anyhow::Error::from)
 }

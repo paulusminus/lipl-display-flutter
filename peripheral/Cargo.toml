@@ -1,6 +1,6 @@
 [package]
 name = "peripheral"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 
 [lib]
@@ -12,16 +12,16 @@ strip = true
 opt-level = "z"
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "1.82.4"
-cargo_metadata = "0.18"
+flutter_rust_bridge_codegen = "1.82.6"
+cargo_metadata = "0.18.1"
 
 [dependencies]
-anyhow = { version = "1", features = ["backtrace"] }
-flutter_rust_bridge = "1.82.4"
-futures = "0.3"
-lipl-display-common = "0.4"
-lipl-gatt-bluer = "0.4"
-login-poweroff-reboot = "0.4"
+anyhow = { version = "1.0.77", features = ["backtrace"] }
+flutter_rust_bridge = "1.82.6"
+futures = "0.3.30"
+lipl-display-common = "0.4.0"
+lipl-gatt-bluer = "0.4.0"
+login-poweroff-reboot = "0.4.0"
 
 [package.metadata.bridge]
 rust_input = "src/api.rs"
