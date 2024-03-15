@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lipl_display/message.dart';
+import 'package:lipl_display/gatt/message.dart';
 
 part 'part.freezed.dart';
 part 'part.g.dart';

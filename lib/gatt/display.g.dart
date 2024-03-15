@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'lipl_display.dart';
+part of 'display.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

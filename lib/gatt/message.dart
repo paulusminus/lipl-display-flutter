@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:lipl_display/command.dart';
-import 'package:lipl_display/status.dart';
-import 'package:lipl_display/part.dart';
+import 'package:lipl_display/gatt/command.dart';
+import 'package:lipl_display/gatt/status.dart';
+import 'package:lipl_display/gatt/part.dart';
 
 abstract class GattMessage {}
 

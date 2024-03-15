@@ -1,11 +1,7 @@
 import 'dart:convert';
 
-import 'package:lipl_display/command.dart';
-import 'package:lipl_display/input.dart';
-import 'package:lipl_display/lipl_display.dart';
-import 'package:lipl_display/message.dart';
-import 'package:lipl_display/status.dart';
-import 'package:lipl_display/part.dart';
+import 'package:lipl_display/gatt/gatt.dart';
+import 'package:lipl_display/io/io.dart';
 import 'package:rxdart/transformers.dart';
 import 'package:test/test.dart';
 

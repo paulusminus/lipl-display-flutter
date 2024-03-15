@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lipl_display/command.dart';
-import 'package:lipl_display/message.dart';
-import 'package:lipl_display/part.dart';
-import 'package:lipl_display/status.dart';
+import 'package:lipl_display/gatt/command.dart';
+import 'package:lipl_display/gatt/message.dart';
+import 'package:lipl_display/gatt/part.dart';
+import 'package:lipl_display/gatt/status.dart';
 
-part 'lipl_display.freezed.dart';
-part 'lipl_display.g.dart';
+part 'display.freezed.dart';
+part 'display.g.dart';
 
 @freezed
 class LiplDisplay with _$LiplDisplay {
