@@ -1,0 +1,32 @@
+{"part":"Verbonden met afstandsbediening C4:8E:8F:89:DC:CC"}
+{"part":"Ik ben met Catootje naar de botermarkt gegaan,\nZe kon maken wat ze wou (4x)\nEn ze maakte van boter een dominee,\neen dominee pardoes.\nIn de kark, in de kark zei de dominee. (2x)\nEen domi-domi-nee, een domi-domi-nee\nen mijn zuster die heet Kee (2x)"}
+{"status":"Catootje (1 / 2)"}
+{"part":"Dominee: In de kark, in de kark\nWafelvrouw: Kom maar binnen, kom maar binnen\nToverheks: 'k Zal je pakken, 'k zal je pakken\nKastelein: Eerst betalen, eerst betalen\nBarones: In de suite, in de suite\nLichtmatroos: Mooie bene, mooie bene,\nDikke meid: Lekker zoenen, lekker zoenen\nOuwe heer: Heel voorzichtig, heel voorzichtig"}
+{"status":"Catootje (2 / 2)"}
+{"command":"Wait"}
+{"part":"Als de grote klokke luidt, de klokke luidt,\nde reuze komt uit.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"status":"Als de grote klokke luidt (1 / 7)"}
+{"part":"Moeder, hang de pot op 't vier, de pot op 't vier,\nde reuze komt hier.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"status":"Als de grote klokke luidt (2 / 7)"}
+{"part":"Moeder, snijd een boterham, een boterham,\nde reuze is gram.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"status":"Als de grote klokke luidt (3 / 7)"}
+{"part":"Moeder, tap het beste bier, het beste bier,\nde reuze is gier.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"part":"Moeder, stop al ras het vat, al ras het vat,\nde reuze is zat.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"status":"Als de grote klokke luidt (4 / 7)"}
+{"status":"Als de grote klokke luidt (5 / 7)"}
+{"part":"Moeder, geef maar kaas en brood, maar kaas en brood,\nde reuze is dood.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"part":"Die daar zegt die reus die kom, die reus die kom,\ndie liegen erom.\nKere weerom, reuze, reuze,\nkere weerom, reuzegom."}
+{"status":"Als de grote klokke luidt (6 / 7)"}
+{"status":"Als de grote klokke luidt (7 / 7)"}
+{"command":"Dark"}
+{"command":"Dark"}
+{"command":"Increase"}
+{"command":"Decrease"}
+{"command":"Light"}
+{"command":"Dark"}
+{"command":"Wait"}
+{"part":"Ik ben met Catootje naar de botermarkt gegaan,\nZe kon maken wat ze wou (4x)\nEn ze maakte van boter een dominee,\neen dominee pardoes.\nIn de kark, in de kark zei de dominee. (2x)\nEen domi-domi-nee, een domi-domi-nee\nen mijn zuster die heet Kee (2x)"}
+{"status":"Catootje (1 / 2)"}
+{"part":"Dominee: In de kark, in de kark\nWafelvrouw: Kom maar binnen, kom maar binnen\nToverheks: 'k Zal je pakken, 'k zal je pakken\nKastelein: Eerst betalen, eerst betalen\nBarones: In de suite, in de suite\nLichtmatroos: Mooie bene, mooie bene,\nDikke meid: Lekker zoenen, lekker zoenen\nOuwe heer: Heel voorzichtig, heel voorzichtig"}
+{"status":"Catootje (2 / 2)"}
+{"command":"Wait"}

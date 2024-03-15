@@ -129,12 +129,13 @@ class __$$LiplDisplayImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LiplDisplayImpl implements _LiplDisplay {
+class _$LiplDisplayImpl extends _LiplDisplay {
   const _$LiplDisplayImpl(
       {required this.text,
       required this.status,
       required this.dark,
-      required this.fontSize});
+      required this.fontSize})
+      : super._();
 
   factory _$LiplDisplayImpl.fromJson(Map<String, dynamic> json) =>
       _$$LiplDisplayImplFromJson(json);
@@ -183,12 +184,13 @@ class _$LiplDisplayImpl implements _LiplDisplay {
   }
 }
 
-abstract class _LiplDisplay implements LiplDisplay {
+abstract class _LiplDisplay extends LiplDisplay {
   const factory _LiplDisplay(
       {required final String text,
       required final String status,
       required final bool dark,
       required final double fontSize}) = _$LiplDisplayImpl;
+  const _LiplDisplay._() : super._();
 
   factory _LiplDisplay.fromJson(Map<String, dynamic> json) =
       _$LiplDisplayImpl.fromJson;

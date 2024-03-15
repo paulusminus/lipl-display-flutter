@@ -5,7 +5,9 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lipl_display/lipl_display.dart';
+import 'package:lipl_display/message.dart';
 import 'package:logging/logging.dart';
+import 'package:rxdart/rxdart.dart';
 
 const int defaultFontsize = 30;
 const bool defaultDark = true;
@@ -18,13 +20,20 @@ void main() async {
   });
   final log = Logger('lipl_display');
 
-  final gatt = await Process.start(
-      "lipl-gatt-bluer-cli", ["-d", "$defaultDark", "-f", "$defaultFontsize"]);
+  final gatt = const String.fromEnvironment("IS_TEST") == "true"
+      ? await Process.start("delay-line", ["3", "lipl-gatt-input.txt"])
+      : await Process.start("lipl-gatt-bluer-cli", []);
   final messages = gatt.stdout
       .transform(const Utf8Decoder())
       .transform(const LineSplitter())
-      .map(jsonDecode)
-      .map((json) => LiplDisplay.fromJson(json));
+      .map(convertToMessage)
+      .transform(
+        ScanStreamTransformer(
+          (display, message, count) => display.handleMessage(message),
+          LiplDisplay.init(),
+        ),
+      )
+      .distinct();
 
   runApp(
     DisplayApp(messages: messages, log: log),
