@@ -20,7 +20,7 @@ void main() async {
   final log = Logger('lipl_display');
 
   final gatt = const String.fromEnvironment("IS_TEST") == "true"
-      ? await Process.start("delay-line", ["3", "lipl-gatt-input.txt"])
+      ? await Process.start("delay-line", ["3", "lipl-gatt-input.txt", "-w"])
       : await Process.start("lipl-gatt-bluer-cli", []);
   final messages = gatt.stdout
       .transform(const Utf8Decoder())
