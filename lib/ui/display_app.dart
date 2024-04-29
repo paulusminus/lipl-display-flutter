@@ -44,16 +44,18 @@ class DisplayApp extends StatelessWidget {
               case ConnectionState.none:
                 return ShowData(
                   liplDisplay: LiplDisplay.init().copyWith(
-                      status: '',
-                      text: 'Even geduld a.u.b. ...',
-                      dark: defaultDark),
+                    status: '',
+                    text: 'Even geduld a.u.b. ...',
+                    dark: defaultDark,
+                  ),
                 );
               case ConnectionState.waiting:
                 return ShowData(
                   liplDisplay: LiplDisplay.init().copyWith(
-                      status: '',
-                      text: 'Even geduld a.u.b.',
-                      dark: defaultDark),
+                    status: '',
+                    text: 'Even geduld a.u.b.',
+                    dark: defaultDark,
+                  ),
                 );
             }
           }
