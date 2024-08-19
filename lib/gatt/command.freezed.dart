@@ -22,8 +22,12 @@ GattMessageCommand _$GattMessageCommandFromJson(Map<String, dynamic> json) {
 mixin _$GattMessageCommand {
   Command get command => throw _privateConstructorUsedError;
 
+  /// Serializes this GattMessageCommand to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GattMessageCommand
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GattMessageCommandCopyWith<GattMessageCommand> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$GattMessageCommandCopyWithImpl<$Res, $Val extends GattMessageCommand>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GattMessageCommand
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$GattMessageCommandImplCopyWithImpl<$Res>
       $Res Function(_$GattMessageCommandImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GattMessageCommand
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$GattMessageCommandImpl implements _GattMessageCommand {
             (identical(other.command, command) || other.command == command));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, command);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GattMessageCommand
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GattMessageCommandImplCopyWith<_$GattMessageCommandImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _GattMessageCommand implements GattMessageCommand {
 
   @override
   Command get command;
+
+  /// Create a copy of GattMessageCommand
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GattMessageCommandImplCopyWith<_$GattMessageCommandImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -22,8 +22,12 @@ GattMessagePart _$GattMessagePartFromJson(Map<String, dynamic> json) {
 mixin _$GattMessagePart {
   String get part => throw _privateConstructorUsedError;
 
+  /// Serializes this GattMessagePart to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GattMessagePart
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GattMessagePartCopyWith<GattMessagePart> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$GattMessagePartCopyWithImpl<$Res, $Val extends GattMessagePart>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GattMessagePart
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$GattMessagePartImplCopyWithImpl<$Res>
       _$GattMessagePartImpl _value, $Res Function(_$GattMessagePartImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GattMessagePart
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$GattMessagePartImpl implements _GattMessagePart {
             (identical(other.part, part) || other.part == part));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, part);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GattMessagePart
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GattMessagePartImplCopyWith<_$GattMessagePartImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _GattMessagePart implements GattMessagePart {
 
   @override
   String get part;
+
+  /// Create a copy of GattMessagePart
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GattMessagePartImplCopyWith<_$GattMessagePartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

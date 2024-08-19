@@ -22,8 +22,12 @@ GattMessageStatus _$GattMessageStatusFromJson(Map<String, dynamic> json) {
 mixin _$GattMessageStatus {
   String get status => throw _privateConstructorUsedError;
 
+  /// Serializes this GattMessageStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GattMessageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GattMessageStatusCopyWith<GattMessageStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$GattMessageStatusCopyWithImpl<$Res, $Val extends GattMessageStatus>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GattMessageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$GattMessageStatusImplCopyWithImpl<$Res>
       $Res Function(_$GattMessageStatusImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GattMessageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,11 +126,13 @@ class _$GattMessageStatusImpl implements _GattMessageStatus {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GattMessageStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GattMessageStatusImplCopyWith<_$GattMessageStatusImpl> get copyWith =>
@@ -146,8 +156,11 @@ abstract class _GattMessageStatus implements GattMessageStatus {
 
   @override
   String get status;
+
+  /// Create a copy of GattMessageStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GattMessageStatusImplCopyWith<_$GattMessageStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

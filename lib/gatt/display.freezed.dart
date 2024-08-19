@@ -25,8 +25,12 @@ mixin _$LiplDisplay {
   bool get dark => throw _privateConstructorUsedError;
   double get fontSize => throw _privateConstructorUsedError;
 
+  /// Serializes this LiplDisplay to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LiplDisplay
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LiplDisplayCopyWith<LiplDisplay> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$LiplDisplayCopyWithImpl<$Res, $Val extends LiplDisplay>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LiplDisplay
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class __$$LiplDisplayImplCopyWithImpl<$Res>
       _$LiplDisplayImpl _value, $Res Function(_$LiplDisplayImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LiplDisplay
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -166,11 +174,13 @@ class _$LiplDisplayImpl extends _LiplDisplay {
                 other.fontSize == fontSize));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, text, status, dark, fontSize);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LiplDisplay
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LiplDisplayImplCopyWith<_$LiplDisplayImpl> get copyWith =>
@@ -203,8 +213,11 @@ abstract class _LiplDisplay extends LiplDisplay {
   bool get dark;
   @override
   double get fontSize;
+
+  /// Create a copy of LiplDisplay
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LiplDisplayImplCopyWith<_$LiplDisplayImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
