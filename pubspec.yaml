@@ -1,7 +1,7 @@
 name: lipl_display
 description: Showing Lyrics on gatt peripheral
 publish_to: "none"
-version: 1.1.1
+version: 1.1.2
 
 environment:
   sdk: ^3.5.4
