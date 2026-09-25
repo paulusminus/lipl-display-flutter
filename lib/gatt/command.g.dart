@@ -6,17 +6,13 @@ part of 'command.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GattMessageCommandImpl _$$GattMessageCommandImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GattMessageCommandImpl(
+_GattMessageCommand _$GattMessageCommandFromJson(Map<String, dynamic> json) =>
+    _GattMessageCommand(
       command: $enumDecode(_$CommandEnumMap, json['command']),
     );
 
-Map<String, dynamic> _$$GattMessageCommandImplToJson(
-        _$GattMessageCommandImpl instance) =>
-    <String, dynamic>{
-      'command': _$CommandEnumMap[instance.command]!,
-    };
+Map<String, dynamic> _$GattMessageCommandToJson(_GattMessageCommand instance) =>
+    <String, dynamic>{'command': _$CommandEnumMap[instance.command]!};
 
 const _$CommandEnumMap = {
   Command.increase: 'Increase',

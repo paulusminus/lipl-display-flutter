@@ -6,15 +6,14 @@ part of 'display.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LiplDisplayImpl _$$LiplDisplayImplFromJson(Map<String, dynamic> json) =>
-    _$LiplDisplayImpl(
-      text: json['text'] as String,
-      status: json['status'] as String,
-      dark: json['dark'] as bool,
-      fontSize: (json['fontSize'] as num).toDouble(),
-    );
+_LiplDisplay _$LiplDisplayFromJson(Map<String, dynamic> json) => _LiplDisplay(
+  text: json['text'] as String,
+  status: json['status'] as String,
+  dark: json['dark'] as bool,
+  fontSize: (json['fontSize'] as num).toDouble(),
+);
 
-Map<String, dynamic> _$$LiplDisplayImplToJson(_$LiplDisplayImpl instance) =>
+Map<String, dynamic> _$LiplDisplayToJson(_LiplDisplay instance) =>
     <String, dynamic>{
       'text': instance.text,
       'status': instance.status,

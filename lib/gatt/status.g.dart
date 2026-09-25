@@ -6,14 +6,8 @@ part of 'status.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GattMessageStatusImpl _$$GattMessageStatusImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GattMessageStatusImpl(
-      status: json['status'] as String,
-    );
+_GattMessageStatus _$GattMessageStatusFromJson(Map<String, dynamic> json) =>
+    _GattMessageStatus(status: json['status'] as String);
 
-Map<String, dynamic> _$$GattMessageStatusImplToJson(
-        _$GattMessageStatusImpl instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-    };
+Map<String, dynamic> _$GattMessageStatusToJson(_GattMessageStatus instance) =>
+    <String, dynamic>{'status': instance.status};

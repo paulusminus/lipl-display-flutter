@@ -22,7 +22,9 @@ enum Command {
 }
 
 @freezed
-class GattMessageCommand with _$GattMessageCommand implements GattMessage {
+abstract class GattMessageCommand
+    with _$GattMessageCommand
+    implements GattMessage {
   const factory GattMessageCommand({required Command command}) =
       _GattMessageCommand;
 

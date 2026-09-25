@@ -6,14 +6,8 @@ part of 'part.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GattMessagePartImpl _$$GattMessagePartImplFromJson(
-        Map<String, dynamic> json) =>
-    _$GattMessagePartImpl(
-      part: json['part'] as String,
-    );
+_GattMessagePart _$GattMessagePartFromJson(Map<String, dynamic> json) =>
+    _GattMessagePart(part: json['part'] as String);
 
-Map<String, dynamic> _$$GattMessagePartImplToJson(
-        _$GattMessagePartImpl instance) =>
-    <String, dynamic>{
-      'part': instance.part,
-    };
+Map<String, dynamic> _$GattMessagePartToJson(_GattMessagePart instance) =>
+    <String, dynamic>{'part': instance.part};

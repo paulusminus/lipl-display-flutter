@@ -8,7 +8,7 @@ part 'display.freezed.dart';
 part 'display.g.dart';
 
 @freezed
-class LiplDisplay with _$LiplDisplay {
+abstract class LiplDisplay with _$LiplDisplay {
   const LiplDisplay._();
 
   const factory LiplDisplay({

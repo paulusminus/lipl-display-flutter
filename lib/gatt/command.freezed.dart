@@ -1,6 +1,6 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
+// coverage:ignore-file
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'command.dart';
@@ -9,158 +9,277 @@ part of 'command.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GattMessageCommand _$GattMessageCommandFromJson(Map<String, dynamic> json) {
-  return _GattMessageCommand.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GattMessageCommand {
-  Command get command => throw _privateConstructorUsedError;
+
+ Command get command;
+/// Create a copy of GattMessageCommand
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GattMessageCommandCopyWith<GattMessageCommand> get copyWith => _$GattMessageCommandCopyWithImpl<GattMessageCommand>(this as GattMessageCommand, _$identity);
 
   /// Serializes this GattMessageCommand to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GattMessageCommand
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GattMessageCommandCopyWith<GattMessageCommand> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  final _this = this as GattMessageCommand;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GattMessageCommand&&(identical(other.command, _this.command) || other.command == _this.command));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+  final _this = this as GattMessageCommand;
+  return Object.hash(runtimeType,_this.command);
+}
+
+@override
+String toString() {
+  final _this = this as GattMessageCommand;
+  return 'GattMessageCommand(command: ${_this.command})';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GattMessageCommandCopyWith<$Res> {
-  factory $GattMessageCommandCopyWith(
-          GattMessageCommand value, $Res Function(GattMessageCommand) then) =
-      _$GattMessageCommandCopyWithImpl<$Res, GattMessageCommand>;
-  @useResult
-  $Res call({Command command});
-}
+abstract mixin class $GattMessageCommandCopyWith<$Res>  {
+  factory $GattMessageCommandCopyWith(GattMessageCommand value, $Res Function(GattMessageCommand) _then) = _$GattMessageCommandCopyWithImpl;
+@useResult
+$Res call({
+ Command command
+});
 
+
+
+
+}
 /// @nodoc
-class _$GattMessageCommandCopyWithImpl<$Res, $Val extends GattMessageCommand>
+class _$GattMessageCommandCopyWithImpl<$Res>
     implements $GattMessageCommandCopyWith<$Res> {
-  _$GattMessageCommandCopyWithImpl(this._value, this._then);
+  _$GattMessageCommandCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GattMessageCommand _self;
+  final $Res Function(GattMessageCommand) _then;
 
-  /// Create a copy of GattMessageCommand
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? command = null,
-  }) {
-    return _then(_value.copyWith(
-      command: null == command
-          ? _value.command
-          : command // ignore: cast_nullable_to_non_nullable
-              as Command,
-    ) as $Val);
-  }
+/// Create a copy of GattMessageCommand
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? command = null,}) {
+  return _then(GattMessageCommand(
+command: null == command ? _self.command : command // ignore: cast_nullable_to_non_nullable
+as Command,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GattMessageCommandImplCopyWith<$Res>
-    implements $GattMessageCommandCopyWith<$Res> {
-  factory _$$GattMessageCommandImplCopyWith(_$GattMessageCommandImpl value,
-          $Res Function(_$GattMessageCommandImpl) then) =
-      __$$GattMessageCommandImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Command command});
 }
 
-/// @nodoc
-class __$$GattMessageCommandImplCopyWithImpl<$Res>
-    extends _$GattMessageCommandCopyWithImpl<$Res, _$GattMessageCommandImpl>
-    implements _$$GattMessageCommandImplCopyWith<$Res> {
-  __$$GattMessageCommandImplCopyWithImpl(_$GattMessageCommandImpl _value,
-      $Res Function(_$GattMessageCommandImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of GattMessageCommand
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? command = null,
-  }) {
-    return _then(_$GattMessageCommandImpl(
-      command: null == command
-          ? _value.command
-          : command // ignore: cast_nullable_to_non_nullable
-              as Command,
-    ));
-  }
+/// Adds pattern-matching-related methods to [GattMessageCommand].
+extension GattMessageCommandPatterns on GattMessageCommand {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GattMessageCommand value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GattMessageCommand() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GattMessageCommand value)  $default,){
+final _that = this;
+switch (_that) {
+case _GattMessageCommand():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GattMessageCommand value)?  $default,){
+final _that = this;
+switch (_that) {
+case _GattMessageCommand() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Command command)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GattMessageCommand() when $default != null:
+return $default(_that.command);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Command command)  $default,) {final _that = this;
+switch (_that) {
+case _GattMessageCommand():
+return $default(_that.command);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Command command)?  $default,) {final _that = this;
+switch (_that) {
+case _GattMessageCommand() when $default != null:
+return $default(_that.command);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$GattMessageCommandImpl implements _GattMessageCommand {
-  const _$GattMessageCommandImpl({required this.command});
 
-  factory _$GattMessageCommandImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GattMessageCommandImplFromJson(json);
+class _GattMessageCommand implements GattMessageCommand {
+  const _GattMessageCommand({required this.command});
+  factory _GattMessageCommand.fromJson(Map<String, dynamic> json) => _$GattMessageCommandFromJson(json);
 
-  @override
-  final Command command;
+@override final  Command command;
 
-  @override
-  String toString() {
+/// Create a copy of GattMessageCommand
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GattMessageCommandCopyWith<_GattMessageCommand> get copyWith => __$GattMessageCommandCopyWithImpl<_GattMessageCommand>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GattMessageCommandToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _GattMessageCommand&&(identical(other.command, command) || other.command == command));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode {
+    return Object.hash(runtimeType,command);
+}
+
+@override
+String toString() {
     return 'GattMessageCommand(command: $command)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GattMessageCommandImpl &&
-            (identical(other.command, command) || other.command == command));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, command);
-
-  /// Create a copy of GattMessageCommand
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GattMessageCommandImplCopyWith<_$GattMessageCommandImpl> get copyWith =>
-      __$$GattMessageCommandImplCopyWithImpl<_$GattMessageCommandImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GattMessageCommandImplToJson(
-      this,
-    );
-  }
 }
 
-abstract class _GattMessageCommand implements GattMessageCommand {
-  const factory _GattMessageCommand({required final Command command}) =
-      _$GattMessageCommandImpl;
 
-  factory _GattMessageCommand.fromJson(Map<String, dynamic> json) =
-      _$GattMessageCommandImpl.fromJson;
-
-  @override
-  Command get command;
-
-  /// Create a copy of GattMessageCommand
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GattMessageCommandImplCopyWith<_$GattMessageCommandImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+abstract mixin class _$GattMessageCommandCopyWith<$Res> implements $GattMessageCommandCopyWith<$Res> {
+  factory _$GattMessageCommandCopyWith(_GattMessageCommand value, $Res Function(_GattMessageCommand) _then) = __$GattMessageCommandCopyWithImpl;
+@override @useResult
+$Res call({
+ Command command
+});
+
+
+
+
+}
+/// @nodoc
+class __$GattMessageCommandCopyWithImpl<$Res>
+    implements _$GattMessageCommandCopyWith<$Res> {
+  __$GattMessageCommandCopyWithImpl(this._self, this._then);
+
+  final _GattMessageCommand _self;
+  final $Res Function(_GattMessageCommand) _then;
+
+/// Create a copy of GattMessageCommand
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? command = null,}) {
+  return _then(_GattMessageCommand(
+command: null == command ? _self.command : command // ignore: cast_nullable_to_non_nullable
+as Command,
+  ));
+}
+
+
+}
+
+// dart format on

@@ -5,7 +5,9 @@ part 'status.freezed.dart';
 part 'status.g.dart';
 
 @freezed
-class GattMessageStatus with _$GattMessageStatus implements GattMessage {
+abstract class GattMessageStatus
+    with _$GattMessageStatus
+    implements GattMessage {
   const factory GattMessageStatus({required String status}) =
       _GattMessageStatus;
 
